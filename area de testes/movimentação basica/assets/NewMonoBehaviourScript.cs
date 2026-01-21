@@ -24,7 +24,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
      {
         float inputDoMovimento =Input.GetAxisRaw("Horizontal");
         origidBody2d.linearVelocity= new Vector2(inputDoMovimento * velocidadeDoJogador, origidBody2d.linearVelocity.y);
+
+        
+        float inputVerticalDoMovimento = Input.GetAxisRaw("Jump");
+        origidBody2d.linearVelocity= new Vector2(origidBody2d.linearVelocity.x,inputVerticalDoMovimento*alturaDoPulo);
        
      }
 
 }
+
