@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - ground
+  - arma
+  - inimigo
+  - moeda
+  - personagem
   layers:
   - Default
   - TransparentFX
