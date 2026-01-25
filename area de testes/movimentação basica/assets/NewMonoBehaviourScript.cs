@@ -4,32 +4,84 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public static int moedas;
 
     public float velocidadeDoJogador;
 
     public Rigidbody2D origidBody2d;
 
+    public float alturaDoPulo;
 
-    void Start()
+    public bool estaNoChao =false;
+
+    [SerializeField] Transform arma;
+
+
+    Vector2 direita = new (0.1f, 0f);
+    Vector2 esquerda = new (-0.1f, 0f);
+
+
+    public void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("ground")) 
+        { 
+            
+            estaNoChao = true;
+           
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnCollisionExit2D(Collision2D collision)
     {
-          
+        if (collision.gameObject.CompareTag("ground"))
+        {
+
+            estaNoChao = false;
+
+            
+        }
+       
     }
-     void FixedUpdate()
+
+    public void Virar()
+    {
+        
+
+
+        float direcao = Input.GetAxisRaw("Horizontal");
+
+        if (direcao > 0)
+        {
+            arma.localPosition = direita;
+
+        }
+        else if (direcao < 0) 
+        {
+            arma.localPosition = esquerda;
+
+        }
+
+    }
+
+
+    // Update is called once per frame
+
+
+    void Update()
      {
         float inputDoMovimento =Input.GetAxisRaw("Horizontal");
         origidBody2d.linearVelocity= new Vector2(inputDoMovimento * velocidadeDoJogador, origidBody2d.linearVelocity.y);
+        Virar();
 
-        
-        float inputVerticalDoMovimento = Input.GetAxisRaw("Jump");
-        origidBody2d.linearVelocity= new Vector2(origidBody2d.linearVelocity.x,inputVerticalDoMovimento*alturaDoPulo);
-       
-     }
+        if (estaNoChao ==true)
+        {
+            float inputVerticalDoMovimento = Input.GetAxisRaw("Jump");
+            origidBody2d.linearVelocity = new Vector2(origidBody2d.linearVelocity.x, inputVerticalDoMovimento * alturaDoPulo);
+
+
+        }
+
+    }
 
 }
-
