@@ -1,14 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 public class moeda : MonoBehaviour
 {
-    public BoxCollider2D boxCollider2D;
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
+   
+   
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("personagem")) 
@@ -17,14 +15,15 @@ public class moeda : MonoBehaviour
 
             Debug.Log(NewMonoBehaviourScript.moedas);
 
+            atualizarMoedas.AtualizarCoins();
+
             gameObject.SetActive(false);
+
+
         }
        
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

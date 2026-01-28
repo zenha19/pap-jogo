@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(inimigo))]
 public class inimigo : MonoBehaviour
 {
     public int vida=100;
@@ -11,10 +12,7 @@ public class inimigo : MonoBehaviour
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
+    
 
     // Update is called once per frame
 
