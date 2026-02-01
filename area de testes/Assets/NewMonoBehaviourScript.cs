@@ -16,6 +16,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     [SerializeField] Transform arma;
 
+    [SerializeField] Transform pistola;
+
 
     Vector2 direita = new (0.1f, 0f);
     Vector2 esquerda = new (-0.1f, 0f);
@@ -54,12 +56,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (direcao > 0)
         {
             arma.localPosition = direita;
+            pistola.localPosition = direita;
 
         }
         else if (direcao < 0) 
         {
             arma.localPosition = esquerda;
-
+            pistola.localPosition = esquerda;
         }
 
     }
