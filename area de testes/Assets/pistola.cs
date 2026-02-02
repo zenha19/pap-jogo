@@ -25,7 +25,7 @@ public class pistola : MonoBehaviour
             Quaternion quaternion = Quaternion.identity;
 
 
-            Instantiate(bala, objeto.localPosition, quaternion);
+            Instantiate(bala, transform.position, quaternion);
 
             SpriteRenderer.enabled = false;
         }
