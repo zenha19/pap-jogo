@@ -6,7 +6,9 @@ public class pistola : MonoBehaviour
 
    public SpriteRenderer SpriteRenderer;
     [SerializeReference] GameObject bala;
+   
     [SerializeReference] Transform objeto;
+    public float velocidadeDaBala;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,9 +27,28 @@ public class pistola : MonoBehaviour
             Quaternion quaternion = Quaternion.identity;
 
 
-            Instantiate(bala, transform.position, quaternion);
+            GameObject balaprefab = Instantiate(bala, transform.position, quaternion);
 
-            SpriteRenderer.enabled = false;
+            if (!NewMonoBehaviourScript.estaViradoParaDireita) 
+            { 
+                
+                balaprefab.GetComponent<bala>().direçãoDoTiro = -1; 
+            
+            }
+            else 
+            {
+                balaprefab.GetComponent<bala>().direçãoDoTiro = 1;
+
+            }
+
+
+
+
+                // balaTrandorm.position = new Vector2(velocidadeDaBala * 1, balaTrandorm.position.y);
+
+                SpriteRenderer.enabled = false;
+
+            
         }
 
 

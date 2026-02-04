@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
@@ -17,6 +18,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [SerializeField] Transform arma;
 
     [SerializeField] Transform pistola;
+
+    public static bool estaViradoParaDireita;
 
 
     Vector2 direita = new (0.1f, 0f);
@@ -57,12 +60,16 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             arma.localPosition = direita;
             pistola.localPosition = direita;
+            estaViradoParaDireita = true;
+           
 
         }
         else if (direcao < 0) 
         {
             arma.localPosition = esquerda;
             pistola.localPosition = esquerda;
+            estaViradoParaDireita=false;
+            
         }
 
     }
