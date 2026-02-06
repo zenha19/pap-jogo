@@ -17,7 +17,9 @@ public class moeda : MonoBehaviour
 
             atualizarMoedas.AtualizarCoins();
 
-            gameObject.SetActive(false);
+           
+
+            Destroy(gameObject);
 
 
         }

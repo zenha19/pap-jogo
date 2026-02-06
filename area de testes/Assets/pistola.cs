@@ -5,10 +5,13 @@ public class pistola : MonoBehaviour
 {
 
    public SpriteRenderer SpriteRenderer;
-    [SerializeReference] GameObject bala;
+    [SerializeReference] GameObject balaObject;
    
     [SerializeReference] Transform objeto;
-    public float velocidadeDaBala;
+    public static float velocidadeDaBala;
+    public float ateProximoDisparo =0;
+    public float tempoDeUmTiroAoutro;
+    public int quantidadeDeBalas = 20;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,17 +20,22 @@ public class pistola : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.F) )
+       // if (ateProximoDisparo > 0)
+        //{
+
+           ateProximoDisparo -= 1;
+        //}
+        if (Input.GetKey(KeyCode.F) && ateProximoDisparo <= 0  && quantidadeDeBalas>0 )
         {
 
             SpriteRenderer.enabled = true;
 
             Quaternion quaternion = Quaternion.identity;
 
-
-            GameObject balaprefab = Instantiate(bala, transform.position, quaternion);
+            bala.posiçãoInicialDaBalaX = transform.position.x;
+            GameObject balaprefab = Instantiate(balaObject, transform.position, quaternion);
 
             if (!NewMonoBehaviourScript.estaViradoParaDireita) 
             { 
@@ -44,13 +52,27 @@ public class pistola : MonoBehaviour
 
 
 
-                // balaTrandorm.position = new Vector2(velocidadeDaBala * 1, balaTrandorm.position.y);
+           
 
-                SpriteRenderer.enabled = false;
+
+            ateProximoDisparo = tempoDeUmTiroAoutro*Time.fixedDeltaTime;
+
+            quantidadeDeBalas -= 1;
 
             
         }
+       
 
+
+
+
+    }
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            SpriteRenderer.enabled = false;
+        }
 
     }
 }

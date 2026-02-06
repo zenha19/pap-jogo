@@ -152,4 +152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::bala
   "dire\xE7\xE3oDoTiro": 0
-  velocidadeDaBala: 0.01
+  velocidadeDaBala: 0.05
+  "posi\xE7\xE3oAtualDaBalaX": {fileID: 4364339267176142171}
+  balabala: {fileID: 1330955613999641754}

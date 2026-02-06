@@ -19,7 +19,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     [SerializeField] Transform pistola;
 
-    public static bool estaViradoParaDireita;
+    public static bool estaViradoParaDireita = true;
 
 
     Vector2 direita = new (0.1f, 0f);

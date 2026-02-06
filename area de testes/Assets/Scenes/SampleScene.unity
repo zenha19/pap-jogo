@@ -807,7 +807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.044000003, y: 0.14932096}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -154.00005, y: 124}
+  m_AnchoredPosition: {x: -154.00006, y: 124}
   m_SizeDelta: {x: 482.5302, y: 55.799988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021481880
@@ -1575,10 +1575,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pistola
   SpriteRenderer: {fileID: 2118958290}
-  bala: {fileID: 1330955613999641754, guid: e15bc17255d96b14b9ff1b879bc80504, type: 3}
-  balaTrandorm: {fileID: 4364339267176142171, guid: e15bc17255d96b14b9ff1b879bc80504, type: 3}
+  balaObject: {fileID: 1330955613999641754, guid: e15bc17255d96b14b9ff1b879bc80504, type: 3}
   objeto: {fileID: 2118958288}
-  velocidadeDaBala: 10
+  ateProximoDisparo: 0
+  tempoDeUmTiroAoutro: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
