@@ -19,11 +19,18 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     [SerializeField] Transform pistola;
 
+    public Canvas inventario;
+
     public static bool estaViradoParaDireita = true;
 
 
     Vector2 direita = new (0.1f, 0f);
     Vector2 esquerda = new (-0.1f, 0f);
+
+    private void Start()
+    {
+        inventario.enabled = false;
+    }
 
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -90,6 +97,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
             origidBody2d.linearVelocity = new Vector2(origidBody2d.linearVelocity.x, inputVerticalDoMovimento * alturaDoPulo);
 
 
+        }
+
+        if(Input.GetKeyDown(KeyCode.G))
+        { 
+            if(inventario.enabled)
+            { 
+                inventario.enabled = false;
+            }
+            else 
+            { 
+             inventario.enabled=true;
+            }
+           
+            
         }
 
     }
